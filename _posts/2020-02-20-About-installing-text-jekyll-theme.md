@@ -1,6 +1,6 @@
 ---
 title: TeXt Jekyll Theme 설치시 작업
-tags: TeXt, Jekyll
+tags: TeXt Jekyll
 ---
 TeXt Theme를 설치하면서 한 일들
 1. TeXt Theme repoitory에서 Folk
@@ -33,3 +33,5 @@ bundle exec jekyll serve
 ```
 http://127.0.0.1:4000
 ```
+
+Post 태그를 2개 이상 설정시에는 스페이스로 구분한다.
