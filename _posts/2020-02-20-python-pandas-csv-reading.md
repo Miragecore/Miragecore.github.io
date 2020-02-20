@@ -21,7 +21,7 @@ date,0,1,2,3,4
 
 ``z_data['date'], z_data['0']`` 등의 형태로 각 Column에 접근 가능
 
-이를 ``z_data['date'].values`` 메소드를 이용하여 np.array로 변경 가능
+이를 ``z_data['date'].values`` 이용하여 np.array로 변경 가능
 단 np.array로 변경시 다른 타입으로 인식될 수 있음.
 ``np.array().asType(np.float)`` 등과 같은 방식으로 형식 통일 가능.
 
