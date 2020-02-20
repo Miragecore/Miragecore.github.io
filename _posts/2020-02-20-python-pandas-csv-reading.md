@@ -1,6 +1,6 @@
 ---
 title : python, pandas를 이용하여 csv 파일 열기
-tag : python pandas csv
+tags : python pandas csv
 ---
 
 ### pandas CSV 파일 읽기
