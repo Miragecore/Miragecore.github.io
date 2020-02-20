@@ -28,3 +28,32 @@ date,0,1,2,3,4
 ``z_data.loc[:,'0':'3550']`` 와 같은 방식으로 Header를 이용하여 DataFrame Slice 가능
 
 ``list(z_data)``로 각 Column의 헤더를 가져올 수 있음.
+
+```python
+# FFT가 된 csv를 읽어서 3D로 그려보기 위함.
+import pandas as pd
+
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
+
+# Read data from a csv
+z_data = pd.read_csv('./summary_fft.csv', encoding = "utf-8")
+
+X = np.array(list(z_data)[1:]).astype(np.float)
+
+Y = np.arange(len(z_data['date'].values)).astype(np.float)
+
+Z = np.array(z_data.loc[:,'0':'3550'].values).astype(np.float)
+
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+
+X,Y = np.meshgrid(X,Y)
+
+surf = ax.plot_surface(X,Y,Z,cmap='coolwarm',linewidth=0,antialiased=False)
+wire = ax.plot_wireframe(X,Y,Z,color='r',linewidth=0.1)
+fig.colorbar(surf,shrink=0.5,aspect=5)
+fig.tight_layout()
+plt.show()
+```
