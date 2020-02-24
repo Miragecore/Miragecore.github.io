@@ -2,9 +2,54 @@
 title : UserControl DataBinding 
 tags : C# wpf UserControl Databinding 
 ---
+## ListView를 데이터 바인딩하기
+### XAML
 
+Xaml쪽에서 ListView 자체에 설정된 ItemSource와 각 GridveiwColum에 DisplayMemberBinding에 설정된
+Binding값의 상하위 관계를 관심가져 볼것.
 
- - ListView를 데이터 바인딩하기
+listView Cell안에 적용될 stringFormat지정 방법은 그때그때 참조할 것.
+
+Check Box의 아래와 달리 경우 별도의 데이터 템플릿으로 분리하여 적용시 바인딩 방식이 달라진다. 
+
+```xml
+<StackPanel>
+    <TextBlock Name="tbkTitle" Text="{Binding Title}"/>
+    <ListView Height="Auto" 
+                Grid.Row="0"
+        HorizontalAlignment="Left" 
+        Name="lstArea" 
+        ItemsSource="{Binding Rectangles}"    
+        VerticalAlignment="Top" 
+        Width="Auto"
+        IsSynchronizedWithCurrentItem="True"
+                Margin="0">
+        <ListView.View>
+            <GridView>
+                <GridView.Columns>
+                    <GridViewColumn Width="30" Header="-">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding Selected}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                <GridViewColumn Width="50" DisplayMemberBinding="{Binding X, StringFormat={}{0:#,#.0}}" Header="X" />
+                <GridViewColumn Width="50" DisplayMemberBinding="{Binding Y, StringFormat={}{0:#,#.0}}" Header="Y" />
+                <GridViewColumn Width="50" DisplayMemberBinding="{Binding Width, StringFormat={}{0:#,#.0}}" Header="Width" />
+                <GridViewColumn Width="50" DisplayMemberBinding="{Binding Height, StringFormat={}{0:#,#.0}}" Header="Height" />
+                </GridView.Columns>
+            </GridView>
+        </ListView.View>
+    </ListView>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <Button Name="btn_AddItem" Click="Btn_AddItem_Click" Content="Add"/>
+        <Button Name="btn_DelItem" Click="Btn_DelItem_Click" Content="Del"/>
+    </StackPanel>
+</StackPanel>
+```
+### Behind Codes
+
  ListView에 List를 데이터 바인딩하기 위해서는 ``ObservableCollection``을 사용
 
  ```csharp
@@ -24,45 +69,6 @@ tags : C# wpf UserControl Databinding
     }
 ```
 
-Xaml쪽에서 ListView 자체에 설정된 ItemSource와 각 GriveiwColum에 DisplayMemberBinding에 설정된
-Binding값의 상하위 관계를 관심가져 볼것.
-stringFormat지정 방법은 그때그때 참조할 것.
-Check Box의 경우 별도의 데이터 템플릿으로 분리하여 적용시 바인딩 방식이 달라진다. 
-
-```
-    <StackPanel>
-            <TextBlock Name="tbkTitle" Text="{Binding Title}"/>
-            <ListView Height="Auto" 
-                      Grid.Row="0"
-              HorizontalAlignment="Left" 
-              Name="lstArea" 
-              ItemsSource="{Binding Rectangles}"    
-              VerticalAlignment="Top" 
-              Width="Auto"
-              IsSynchronizedWithCurrentItem="True"
-                      Margin="0">
-                <ListView.View>
-                    <GridView>
-                        <GridView.Columns>
-                            <GridViewColumn Width="30" Header="-">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <CheckBox IsChecked="{Binding Selected}"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        <GridViewColumn Width="50" DisplayMemberBinding="{Binding X, StringFormat={}{0:#,#.0}}" Header="X" />
-                        <GridViewColumn Width="50" DisplayMemberBinding="{Binding Y, StringFormat={}{0:#,#.0}}" Header="Y" />
-                        <GridViewColumn Width="50" DisplayMemberBinding="{Binding Width, StringFormat={}{0:#,#.0}}" Header="Width" />
-                        <GridViewColumn Width="50" DisplayMemberBinding="{Binding Height, StringFormat={}{0:#,#.0}}" Header="Height" />
-                        </GridView.Columns>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Name="btn_AddItem" Click="Btn_AddItem_Click" Content="Add"/>
-                <Button Name="btn_DelItem" Click="Btn_DelItem_Click" Content="Del"/>
-            </StackPanel>
-        </StackPanel>
-```
-
+### Reference
+[Stackoverflow](https://stackoverflow.com/questions/33854081/c-sharp-wpf-binding-collection-to-the-listview)
+[stackvoerflow](https://stackoverflow.com/questions/16985382/binding-to-usercontrol-dependencyproperty)
