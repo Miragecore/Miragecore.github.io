@@ -35,3 +35,5 @@ http://127.0.0.1:4000
 ```
 
 Post 태그를 2개 이상 설정시에는 스페이스로 구분한다.
+
+[코드블럭 지원 언어 참고](http://haroopress.com/post/fenced-code-block/)
