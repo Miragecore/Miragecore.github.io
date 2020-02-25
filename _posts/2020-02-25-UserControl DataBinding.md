@@ -62,13 +62,24 @@ Check Box의 아래와 달리 경우 별도의 데이터 템플릿으로 분리�
  public ObservableCollection<CogRectangle> Rectangles { get; set; } = new ObservableCollection<CogRectangle>();
  
  public AreaListViewCtrl()
-    {
-        InitializeComponent();
+{
+    InitializeComponent();
 
-        DataContext = this;
-    }
+    DataContext = this;
+}
+
+public class CogRectangle
+{
+    bool Selected {get; set;}
+    double X {get; set;}
+    double Y {get; set;}
+    double width {get;set;}
+    double height {get; set;}
+    ...
+}
 ```
 
 ### Reference
-[Stackoverflow](https://stackoverflow.com/questions/33854081/c-sharp-wpf-binding-collection-to-the-listview)
-[stackvoerflow](https://stackoverflow.com/questions/16985382/binding-to-usercontrol-dependencyproperty)
+[참고 1](https://stackoverflow.com/questions/33854081/c-sharp-wpf-binding-collection-to-the-listview)
+
+[참고 2](https://stackoverflow.com/questions/16985382/binding-to-usercontrol-dependencyproperty)
