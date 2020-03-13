@@ -4,6 +4,6 @@ tags : C#
 ---
 
 
-### CSharp Article
+### C# Article
 
 [Sigleton Pattern ](https://csharpindepth.com/articles/singleton)
