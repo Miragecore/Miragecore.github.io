@@ -79,20 +79,18 @@ CMD         node server.js
 
 ### Docker 실행 관련(PowerShell)
 #### Docker 실행
--d : detached mode(background 실행)
-
--p <호스트 포트> : <컨테이너 포트>
-
--v <호스트 폴더 경로> : <컨테이너 마운트 경로>
-
--rm : 컨테이너 정지시 자동 삭제
 ```
+-d : detached mode(background 실행)
+-p <호스트 포트> : <컨테이너 포트>
+-v <호스트 폴더 경로> : <컨테이너 마운트 경로>
+-rm : 컨테이너 정지시 자동 삭제
+
 ex) docker run -d -p 8080:4567 <image Name>
 ex) docker run -p 81:80 -v c:/Projects/dockerTest/src/:/var/www/html/ mariadb
 ```
 #### 실행중인 Docker 컨테이너내의 프로그램 실행
--it : 터미널 
 ```
+-it : 터미널 
 docker exec -it [Container Name] <실행할 명령>
 docker exec -it app /bin/bash
 docker exec -it app /bin/sh
