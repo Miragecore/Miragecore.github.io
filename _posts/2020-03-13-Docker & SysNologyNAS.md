@@ -91,7 +91,7 @@ docker run -p 옵션 역할
 docker run -e 옵션에 설정하는 환경 변수 혹은 node에서 사용할 변수등을 등록(ex:NODE_ENV)
 
     * 설정 마법사 완료시 컨테이너 실행 
-    
+
 * 실행된 컨테이너는 NAS의 Docker의 컨테이너 탭에서 확인 
 
 실행시 위의 변수등을 GUI에서 설정하고 나서 별도로 수정하는 방법을 찾지 못함.
@@ -101,8 +101,11 @@ docker run -e 옵션에 설정하는 환경 변수 혹은 node에서 사용할 �
 ### Docker 실행 관련(PowerShell)
 #### Docker 실행
 -d : detached mode(background 실행)
+
 -p <호스트 포트> : <컨테이너 포트>
+
 -v <호스트 폴더 경로> : <컨테이너 마운트 경로>
+
 -rm : 컨테이너 정지시 자동 삭제
 ```
 ex) docker run -d -p 8080:4567 <image Name>
