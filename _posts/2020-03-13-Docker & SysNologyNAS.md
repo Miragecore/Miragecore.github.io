@@ -3,27 +3,29 @@ title : Docker 관련 명령어 정리
 tags : docker NAS
 ---
 ### Docker 이미지 관련(PowerShell)
-docker 이미지 빌드 
-이미지 빌드는 아래의 dockerfile을 기준으로 진행됨.
+파워쉘에서 진행
+#### docker 이미지 빌드 
 ```
 docker build -t <iamge Name> <Dockerfile PATH>
 ex) docker build -t node_devel .
 ```
-docker 이미지 파일로 저장
+이미지 빌드는 다음 섹션의 dockerfile을 기준으로 진행됨.
+
+#### docker 이미지 파일로 저장
 ```
 docker save <imagename> -o <targetname>.tar
 ex) docker save node_devel -o node_devel.tar
 ```
-파워쉘을 이용
-전체 컨테이너 삭제
+
+#### 전체 컨테이너 삭제
 ```
 docker rm $(docker ps -a -q)
 ```
-이미지 전체 삭제
+#### 이미지 전체 삭제
 ```
 docker rmi $(docker images -q)
 ```
-[참고](https://pandora.tistory.com/202)
+[참고 사이트](https://pandora.tistory.com/202)
 
 ### DockerFile Example
 Docker 빌드중 해야할 작업 정의
@@ -76,7 +78,7 @@ docker run -e 옵션에 설정하는 환경 변수
 실행시 위의 변수등을 GUI에서 설정하고 나서 별도로 수정하는 방법을 찾지 못함.
 
 ### Docker 실행 관련(PowerShell)
-Docker 실행
+#### Docker 실행
 -d : detached mode(background 실행)
 -p <호스트 포트> : <컨테이너 포트>
 -v <호스트 폴더 경로> : <컨테이너 마운트 경로>
@@ -85,7 +87,7 @@ Docker 실행
 ex) docker run -d -p 8080:4567 <image Name>
 ex) docker run -p 81:80 -v c:/Projects/dockerTest/src/:/var/www/html/ mariadb
 ```
-실행중인 Docker 컨테이너내의 실행
+#### 실행중인 Docker 컨테이너내의 프로그램 실행
 -it : 터미널 
 ```
 docker exec -it [Container Name] <실행할 명령>
@@ -93,7 +95,7 @@ docker exec -it app /bin/bash
 docker exec -it app /bin/sh
 docker exec -it app /bin/ash
 ```
-[참고](http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/28)
+[참고 사이트](http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/28)
 
 ### 참고
 [Docker CP 명령어](https://www.leafcats.com/163)
