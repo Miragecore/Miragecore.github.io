@@ -1,5 +1,5 @@
 ---
-title : Docker 관련 명령어 정리
+title : Docker 명령어 및 Sysnology NAS에서 사용 
 tags : docker NAS
 ---
 ### Docker 이미지 관련(PowerShell)
@@ -64,26 +64,12 @@ CMD         node server.js
 [Docker 지원 모델 확인](https://www.synology.com/ko-kr/dsm/packages/Docker)
 * Docker Iamge 빌드 & 파일로 저장
 * NAS Docker에서 이미지 추가(파일에서 추가)
-* NAS Image 탭에서 컨테이너 실행
-
-실행 버튼 클릭시 설정 마법사가 실행됨
-    * 컨테이너 이름 설정
-
-설정 마법사 상의 첫화면에서 컨테이너 이름 설정
-        * 고급 설정
-
-설정 마법사의 고급설정에서 아래의 볼륨, 포트, 환경변수등을 설정해야 함.
-            * 볼륨 설정 
-
-폴더 추가시 docker run -v 옵션의 역할
-
-파일도 별도 추가 가능
-            * 포트 설정
-
-docker run -p 옵션 역할
-            * 환경변수 등록
-
-docker run -e 옵션에 설정하는 환경 변수 혹은 node에서 사용할 변수등을 등록(ex:NODE_ENV)
+* NAS Image 탭에서 컨테이너 실행 : 실행 버튼 클릭시 설정 마법사가 실행됨
+    * 컨테이너 이름 설정 : 설정 마법사 상의 첫화면에서 컨테이너 이름 설정
+        * 고급 설정 : 설정 마법사의 고급설정에서 아래의 볼륨, 포트, 환경변수등을 설정해야 함.
+            * 볼륨 설정 : 폴더 추가시 docker run -v 옵션의 역할, 파일도 별도 추가 가능
+            * 포트 설정 : docker run -p 옵션 역할
+            * 환경변수 등록 : docker run -e 옵션에 설정하는 환경 변수, node에서 사용할 변수등을 등록(ex:NODE_ENV)
     * 설정 마법사 완료시 컨테이너 실행 
 * 실행된 컨테이너는 NAS의 Docker의 컨테이너 탭에서 확인 
 
