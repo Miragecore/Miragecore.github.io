@@ -62,20 +62,27 @@ CMD         node server.js
 
 ### Sysnology NAS
 [Docker 지원 모델 확인](https://www.synology.com/ko-kr/dsm/packages/Docker)
-1. Docker Iamge 빌드 & 파일로 저장
-2. NAS Docker에서 이미지 추가(파일에서 추가)
-3. Image 실행
-3.1. 컨테이너 이름 설정
-3.2. 고급 설정
-3.2.1. 볼륨 설정 
+#### Docker Iamge 빌드 & 파일로 저장
+#### NAS Docker에서 이미지 추가(파일에서 추가)
+#### Image 실행
+실행 버튼 클릭시 설정 마법사가 실행됨
+##### 컨테이너 이름 설정
+설정 마법사 상의 첫화면에서 컨테이너 이름 설정
+##### 고급 설정
+설정 마법사의 고급설정에서 아래의 볼륨, 포트, 환경변수등을 설정해야 함.
+###### 볼륨 설정 
 폴더 추가시 docker run -v 옵션의 역할
 파일도 별도 추가 가능
-3.2.2. 포트 설정
+###### 포트 설정
 docker run -p 옵션 역할
-3.2.3. 환경변수 등록
+###### 환경변수 등록
 docker run -e 옵션에 설정하는 환경 변수
 혹은 node에서 사용할 변수등을 등록(ex:NODE_ENV)
+#### 설정 마법사 완료시 컨테이너 실행 
+
 실행시 위의 변수등을 GUI에서 설정하고 나서 별도로 수정하는 방법을 찾지 못함.
+
+실행된 컨테이너의 터미널탭에서 추가 버튼을 이용하여 내부 bash 사용가능
 
 ### Docker 실행 관련(PowerShell)
 #### Docker 실행
@@ -99,8 +106,13 @@ docker exec -it app /bin/ash
 
 ### 참고
 [Docker CP 명령어](https://www.leafcats.com/163)
+
 [Docker Command 정리](https://jungwoon.github.io/docker/2019/01/11/Docker-1/)
+
 [Docekr Command 정리](http://pyrasis.com/Docker/Docker-HOWTO#stop)
+
 [Docker -v 에서 Port 매칭 관련](https://stackoverflow.com/questions/48629001/trying-to-run-a-simple-express-server-on-a-docker-but-cant-access-any-routes)
+
 [Docker Volume 마운트](https://stackoverflow.com/questions/47162825/docker-volumes-on-windows-10)
+
 [Docker Build](https://subicura.com/2017/02/10/docker-guide-for-beginners-create-image-and-deploy.html#sinatra-%EC%9B%B9-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%83%98%ED%94%8C)
